@@ -1,0 +1,12 @@
+name: NOafk
+main: com.youssgm3o8.noafk.Main
+version: 1.0
+api: ["1.1.0"]
+description: Kicks players after a configurable AFK duration
+load: POSTWORLD
+
+commands:
+  afkignore:
+    description: "Ignore a player from being kicked for AFK"
+    usage: "/afkignore <player>"
+    permission: "noafk.afkignore"

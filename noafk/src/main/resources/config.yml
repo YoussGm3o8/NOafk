@@ -1,0 +1,7 @@
+# NOafk Configuration
+# Time settings are in seconds
+
+kick-after-seconds: 300         # Total AFK time before kick (default 5 minutes)
+warning-before-seconds: 30      # Number of seconds before kick to issue a warning
+warning-message: "You will be kicked for being AFK soon!"
+ignored-players: []
