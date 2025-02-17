@@ -1,25 +1,51 @@
-# NOafk Nukkit Plugin
+# NOafk Plugin
 
-NOafk is a simple Nukkit plugin that automatically kicks players who have been inactive (AFK) for a configurable amount of time. It also optionally warns them before they get kicked, allowing them to move or chat to reset the timer.
+A Nukkit plugin that automatically kicks players who are AFK (Away From Keyboard) for too long.
 
 ## Features
-- Configurable timeout duration via config.yml
-- Optional warning message sent to players before the kick
-- Minimal performance overhead
 
-## Installation
-1. Place the NOafk plugin JAR file into your server’s "plugins" folder.
-2. Start or restart your Nukkit server.
-3. A config.yml file will be generated in the "plugins/NOafk" folder after the first run.
+- Configurable AFK detection and kick timer
+- Warning system before kicking
+- Countdown display in last 10 seconds
+- AFK immunity system for specific players
+- Persistent ignored players list
+- Clean rejoining (no instant kicks)
+
+## Commands
+
+- `/afkignore <player>` - Toggle AFK immunity for a player
+  - Permission: `noafk.command.ignore`
+  - Usage: Toggles whether a player can be kicked for being AFK
 
 ## Configuration
-Edit the values in "config.yml":
-- kick-after-seconds: The total number of seconds of inactivity before a player is kicked.
-- warning-before-seconds: The number of seconds before kick to send a warning message.
-- warning-message: Text for the warning message.
 
-## Usage
-Once installed and the server is running, the plugin will monitor player activity. If a player exceeds the configured AFK threshold, they will receive a warning (if configured). If they remain inactive, they will be kicked.
+```yaml
+# Time settings are in seconds
+kick-after-seconds: 300         # Total AFK time before kick (default 5 minutes)
+warning-before-seconds: 30      # Number of seconds before kick to issue a warning
+warning-message: "You will be kicked for being AFK soon!"
+ignored-players: []             # List of players immune to AFK kicks
+```
 
 ## Permissions
-No special permissions are required. All players are subject to the AFK check.
+
+- `noafk.command.ignore` - Allows use of the /afkignore command
+
+## Installation
+
+1. Download the plugin JAR file
+2. Place it in your server's `plugins` folder
+3. Restart the server
+4. Configure the plugin in `plugins/NOafk/config.yml`
+
+## Building from Source
+
+1. Clone the repository
+2. Build using Maven:
+```bash
+mvn clean package
+```
+
+## License
+
+MIT License
